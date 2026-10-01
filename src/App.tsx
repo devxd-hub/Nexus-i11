@@ -11,6 +11,7 @@ import HeritageJourney from './components/HeritageJourney/HeritageJourney';
 import StorySection from './components/StorySection';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import Partners from './components/Partners/Partners';
 
 // Code-split modals so they are only fetched when requested by the user
 const ApplicationModal = lazy(() => import('./components/ApplicationModal'));
@@ -86,6 +87,7 @@ export default function App() {
 
         {/* 5. Call-To-Action Section (Application Gates) */}
         <CTA onOpenApplyModal={() => setIsApplyModalOpen(true)} />
+          <Partners onOpenApplyModal={() => setIsApplyModalOpen(true)} />
       </main>
 
       {/* 6. Editorial Footer */}
