@@ -135,7 +135,15 @@ export default function Register() {
   const labelClasses = "block font-mono text-xs text-[#64748b] uppercase tracking-wider mb-2";
 
   return (
-    <div className="min-h-screen bg-[#07080a] text-white py-12 px-4 sm:px-6 lg:px-8 font-sans">
+    <div
+      className="min-h-screen text-white py-12 px-4 sm:px-6 lg:px-8 font-sans"
+      style={{
+        backgroundImage: "linear-gradient(rgba(7,8,10,0.78), rgba(7,8,10,0.86)), url('/gta6/hero-water-no-ships.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       <div className="max-w-3xl mx-auto">
         {/* Navigation Return Link */}
         <div className="mb-6">

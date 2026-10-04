@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-import { initSmoothScroll } from './lib/smoothScroll';
+import { useLenis } from './hooks/useLenis';
+import './landing.css';
 import { RouterProvider, useRouter } from './lib/router';
-import { Navbar } from './sections/Navbar';
-import { Hero } from './sections/Hero';
+import { Hero } from './components/LandingHero';
 import { About } from './sections/About';
 import { Tracks } from './sections/Tracks';
 import { Timeline } from './sections/Timeline';
@@ -14,14 +13,8 @@ import { PartnersPage } from './pages/PartnersPage';
 import Register from './pages/Register';
 
 function AppContent() {
-  const { path } = useRouter();
-
-  useEffect(() => {
-    const cleanup = initSmoothScroll();
-    return () => {
-      cleanup?.();
-    };
-  }, []);
+  const { path, navigate } = useRouter();
+  useLenis();
 
   // Dedicated Hidden /partners page (pure full-screen interactive experience)
   if (path === '/partners') {
@@ -37,11 +30,10 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-[#111315] text-[#F1EEE7] flex flex-col">
       {/* 1. Navbar */}
-      <Navbar />
 
       <main className="flex-1 flex flex-col">
         {/* 2. Hero */}
-        <Hero />
+        <Hero onOpenApplyModal={() => navigate('/register')} />
 
         {/* 3. About Hack for Good */}
         <About />

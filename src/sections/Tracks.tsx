@@ -768,7 +768,9 @@ export const Tracks: React.FC = () => {
 
   const doOpen = useCallback(
     (idx: number) => {
-      if (stateRef.current.phase !== 'idle') return;
+      const { phase: currentPhase, activeTrack: currentTrack } = stateRef.current;
+      if (currentPhase === 'opening' || currentPhase === 'closing') return;
+      if (currentPhase === 'open' && currentTrack === idx) return;
       const wp = getWinPos();
       setupCanvas();
       stateRef.current = { phase: 'opening', activeTrack: idx };

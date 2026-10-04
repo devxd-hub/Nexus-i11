@@ -141,6 +141,7 @@ export default function ShatterableGlassCard({
   revealedPerks,
 }: ShatterableGlassCardProps = {}) {
   const [state, setState] = useState<'intact' | 'cracked' | 'shattered'>('intact');
+  const [hasRevealed, setHasRevealed] = useState(false);
   const [shards, setShards] = useState<Shard[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const audioRefs = useRef<{
@@ -242,6 +243,7 @@ export default function ShatterableGlassCard({
         // ignore audio errors
       }
     } else if (state === 'cracked') {
+      setHasRevealed(true);
       setState('shattered');
       try {
         audioRefs.current.shatterSynth?.triggerAttackRelease(['C4', 'E4', 'G4', 'B4'], 0.4);
@@ -333,6 +335,16 @@ export default function ShatterableGlassCard({
 
   // Custom Prize Card Mode
   return (
+    <div className="relative group/prize max-w-[350px] mx-auto w-full">
+      {!hasRevealed && (
+        <div
+          role="tooltip"
+          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-40 whitespace-nowrap rounded-lg border border-white/20 bg-[#171A1D]/95 px-3 py-2 text-xs font-medium text-[#F1EEE7] shadow-xl backdrop-blur-md pointer-events-none opacity-0 translate-y-1 transition-all duration-150 group-hover/prize:opacity-100 group-hover/prize:translate-y-0"
+        >
+          Tap to reveal
+          <span className="absolute top-full left-1/2 -translate-x-1/2 border-x-[5px] border-x-transparent border-t-[5px] border-t-[#171A1D]" />
+        </div>
+      )}
     <div
       ref={containerRef}
       onClick={handleClick}
@@ -499,6 +511,7 @@ export default function ShatterableGlassCard({
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
     </div>
   );
 }
