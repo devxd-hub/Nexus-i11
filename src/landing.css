@@ -1,0 +1,105 @@
+
+
+.hero-artwork {
+  position: absolute;
+  inset: 0;
+  background: url('/gta6/hero-water-no-ships.png') center / cover no-repeat;
+}
+
+.hero-artwork-title {
+  position: absolute;
+  z-index: 1;
+  top: 2%;
+  left: 1%;
+  width: 98%;
+  margin: 0;
+  pointer-events: none;
+}
+
+.hero-artwork-title img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(1) brightness(1.06);
+  opacity: 0.88;
+}
+
+.sea-wordmark { position: absolute; top: 0; left: 0; z-index: 2; overflow: visible; pointer-events: none; }
+.living-sea { position: absolute; top: 0; left: 0; z-index: 2; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .living-sea { display: none; } }
+.good-lettering { opacity: 1; }
+.good-water-motion { fill: none; stroke: #eeadbd; stroke-width: 1.2; stroke-linecap: round; }
+.good-water-motion .water-shadow { stroke: #522343; stroke-width: 5; opacity: .35; filter: blur(2px); }
+.good-water-motion .water-reflection { stroke: #f6bd80; stroke-width: .8; opacity: .55; }
+.good-water-motion > g { opacity: 0; }
+
+.hero-artwork-foreground {
+  z-index: 2;
+  mask: url('/gta6/hero-foreground-mask.svg') center / cover no-repeat;
+  -webkit-mask: url('/gta6/hero-foreground-mask.svg') center / cover no-repeat;
+  pointer-events: none;
+}
+
+.hero-scene-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(to bottom, rgba(7,8,10,.35), transparent 24%, transparent 78%, #07080a);
+  pointer-events: none;
+}
+
+.hero-traffic { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.road-vehicle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+  transform-origin: center bottom;
+  will-change: transform, width;
+  filter: drop-shadow(0 4px 3px rgba(8, 2, 20, .65));
+}
+.sports-vehicle img { display: block; width: 100%; height: auto; }
+.sports-vehicle { aspect-ratio: 1672 / 941; }
+.sports-vehicle { z-index: 2; }
+.car-character {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  aspect-ratio: 1 / 2;
+  opacity: 0;
+  background-image: url('/gta6/character-exit-sprites.png');
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  transform-origin: center bottom;
+  will-change: transform, opacity, clip-path;
+  filter: drop-shadow(1px 2px 1px rgba(7, 3, 15, .65));
+}
+.car-character-woman { background-position: left center; z-index: 3; }
+.car-character-man { background-position: right center; z-index: 1; }
+.car-doors { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; opacity: 0; }
+.sports-side { position: relative; }
+.car-wheel { position: absolute; pointer-events: none; }
+.car-wheel-near { left: 60%; top: 53.8%; width: 8.8%; height: 29%; }
+.car-wheel-far { left: 93%; top: 53%; width: 3.5%; height: 21%; }
+.sports-vehicle .sports-rear {
+  position: absolute;
+  bottom: 10%;
+  left: 18%;
+  width: 64%;
+  height: 84%;
+  object-fit: contain;
+  opacity: 0;
+}
+
+@media (max-width: 640px) {
+  .hero-artwork { background-position: 22% center; }
+  .hero-artwork-foreground { mask-position: 22% center; -webkit-mask-position: 22% center; }
+  .hero-artwork-title { top: 8%; left: 1%; width: 98%; }
+}
+
+
+
+.hero-redesign .font-mono { font-family: 'JetBrains Mono', monospace; }
+.hero-redesign .font-display { font-family: 'Syne', sans-serif; }
+.hero-redesign :focus-visible { outline: 2px solid #f59e0b; outline-offset: 2px; }
