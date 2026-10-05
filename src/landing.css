@@ -103,3 +103,22 @@
 .hero-redesign .font-mono { font-family: 'JetBrains Mono', monospace; }
 .hero-redesign .font-display { font-family: 'Syne', sans-serif; }
 .hero-redesign :focus-visible { outline: 2px solid #f59e0b; outline-offset: 2px; }
+
+.landing-motion-strip {
+  position: relative;
+  z-index: 4;
+  overflow: hidden;
+  padding: 18px 0;
+  background: #e5a06f;
+  color: #171114;
+  border-block: 1px solid rgba(255,255,255,.25);
+  visibility: hidden;
+}
+.hero-drive[data-scene-complete='true'] .landing-motion-strip { visibility: visible; }
+.landing-motion-strip-track { display: flex; width: max-content; animation: landing-strip-flow 34s linear infinite; animation-play-state: paused; }
+.hero-drive[data-scene-complete='true'] .landing-motion-strip-track { animation-play-state: running; }
+.landing-motion-strip-group { display: flex; flex-shrink: 0; }
+.landing-motion-strip-message { display: flex; align-items: center; gap: 32px; padding-right: 32px; white-space: nowrap; font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(16px, 2vw, 24px); letter-spacing: .035em; }
+.landing-motion-strip-star { font-size: 22px; color: #71362f; }
+@keyframes landing-strip-flow { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .landing-motion-strip-track { animation: none; } }

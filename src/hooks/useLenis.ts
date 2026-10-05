@@ -25,6 +25,7 @@ function initLenis(isReducedMotion: boolean): Lenis {
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: !isReducedMotion,
+    allowNestedScroll: true,
   });
 
   globalLenisInstance = lenis;

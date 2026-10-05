@@ -260,6 +260,7 @@ export type TicketStubFooterProps = {
   /** Starting value of the counter. */
   count?: number
   countLabel?: string
+  showCount?: boolean
   /** Average tickets per second while running. 0 stops the counter. */
   rate?: number
   /** Mono paragraph on the ticket. */
@@ -990,6 +991,7 @@ export default function TicketStubFooter({
   onStatusChange,
   count = 12745012,
   countLabel = "Tickets Solved",
+  showCount = true,
   rate = 1.8,
   blurb,
   legal = [{ label: "All rights reserved" }, { label: "Terms of use", href: "#" }, { label: "Privacy Policy", href: "#" }],
@@ -1268,7 +1270,7 @@ export default function TicketStubFooter({
                   {statusCaption} <span className="tsf-status-hint">{active ? "\u00b7 pause" : "\u00b7 resume"}</span>
                 </span>
               </button>
-              <div className="tsf-stat">
+              {showCount && <div className="tsf-stat">
                 <span className="tsf-stat-v">
                   <span key={punch} className={punch ? "tsf-bump" : undefined}>
                     <Odometer value={total} />
@@ -1276,7 +1278,7 @@ export default function TicketStubFooter({
                   <span className="sr-only">{formatCount(total)}</span>
                 </span>
                 <span className="tsf-stat-c">{countLabel}</span>
-              </div>
+              </div>}
             </div>
             <span className="tsf-gutcell" aria-hidden="true" />
             <Blurb text={blurbText} reduced={reduced} visible={visible || ticketVisible} />

@@ -181,6 +181,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenApplyModal }) => {
       const driveDistance = () => Math.max(1200, Math.min(1800, window.innerHeight * 1.7));
       const exitDistance = 450;
       const draw = (totalProgress: number) => {
+        section.dataset.sceneComplete = totalProgress >= .999 ? 'true' : 'false';
         const traveled = totalProgress * (driveDistance() + exitDistance);
         const progress = Math.min(1, traveled / driveDistance());
         const exitProgress = Math.max(0, Math.min(1, (traveled - driveDistance() - 55) / (exitDistance - 55)));
@@ -327,6 +328,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenApplyModal }) => {
         </div>
         <div className="hero-scene-shade" aria-hidden="true" />
         <HeroNavigation onRegisterClick={onOpenApplyModal} className="relative" />
+      </div>
+      <div className="landing-motion-strip" aria-label="Build. Solve. Impact. Hack for Good.">
+        <div className="landing-motion-strip-track" aria-hidden="true">
+          {[0, 1].map(copy => (
+            <div className="landing-motion-strip-group" key={copy}>
+              {[0, 1, 2, 3].map(item => (
+                <span className="landing-motion-strip-message" key={item}>
+                  BUILD. SOLVE. IMPACT. <span className="landing-motion-strip-star">✦</span> HACK FOR GOOD <span className="landing-motion-strip-star">✦</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
