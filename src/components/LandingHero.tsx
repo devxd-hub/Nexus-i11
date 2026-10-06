@@ -122,10 +122,10 @@ function SeaWordmark() {
     <defs>
       <clipPath id="good-waterline"><path data-waterline-clip d="M420 285H1520V550H420Z" /></clipPath>
       <linearGradient id="good-vice-colors" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stopColor="#e5a084" />
-        <stop offset=".38" stopColor="#e65b99" />
-        <stop offset=".72" stopColor="#ba38bd" />
-        <stop offset="1" stopColor="#6944b9" />
+        <stop offset="0" stopColor="#edb194" />
+        <stop offset=".38" stopColor="#e977aa" />
+        <stop offset=".72" stopColor="#c65bce" />
+        <stop offset="1" stopColor="#9270cf" />
       </linearGradient>
       <mask id="good-color-shape" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="44" y="310" width="1358" height="514">
         <image href="/gta6/good-wordmark.png" width="1430" height="1086" />
