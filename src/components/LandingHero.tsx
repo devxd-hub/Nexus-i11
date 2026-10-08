@@ -122,10 +122,10 @@ function SeaWordmark() {
     <defs>
       <clipPath id="good-waterline"><path data-waterline-clip d="M420 285H1520V550H420Z" /></clipPath>
       <linearGradient id="good-vice-colors" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stopColor="#e5a084" />
-        <stop offset=".38" stopColor="#e65b99" />
-        <stop offset=".72" stopColor="#ba38bd" />
-        <stop offset="1" stopColor="#6944b9" />
+        <stop offset="0" stopColor="#edb194" />
+        <stop offset=".38" stopColor="#e977aa" />
+        <stop offset=".72" stopColor="#c65bce" />
+        <stop offset="1" stopColor="#9270cf" />
       </linearGradient>
       <mask id="good-color-shape" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="44" y="310" width="1358" height="514">
         <image href="/gta6/good-wordmark.png" width="1430" height="1086" />
@@ -181,6 +181,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenApplyModal }) => {
       const driveDistance = () => Math.max(1200, Math.min(1800, window.innerHeight * 1.7));
       const exitDistance = 450;
       const draw = (totalProgress: number) => {
+        section.dataset.sceneComplete = totalProgress >= .999 ? 'true' : 'false';
         const traveled = totalProgress * (driveDistance() + exitDistance);
         const progress = Math.min(1, traveled / driveDistance());
         const exitProgress = Math.max(0, Math.min(1, (traveled - driveDistance() - 55) / (exitDistance - 55)));
@@ -327,6 +328,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenApplyModal }) => {
         </div>
         <div className="hero-scene-shade" aria-hidden="true" />
         <HeroNavigation onRegisterClick={onOpenApplyModal} className="relative" />
+      </div>
+      <div className="landing-motion-strip" aria-label="Build. Solve. Impact. Hack for Good.">
+        <div className="landing-motion-strip-track" aria-hidden="true">
+          {[0, 1].map(copy => (
+            <div className="landing-motion-strip-group" key={copy}>
+              {[0, 1, 2, 3].map(item => (
+                <span className="landing-motion-strip-message" key={item}>
+                  BUILD. SOLVE. IMPACT. <span className="landing-motion-strip-star">✦</span> HACK FOR GOOD <span className="landing-motion-strip-star">✦</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

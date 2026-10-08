@@ -11,6 +11,7 @@ import { CallToAction } from './sections/CallToAction';
 import { Footer } from './sections/Footer';
 import { PartnersPage } from './pages/PartnersPage';
 import Register from './pages/Register';
+import ThemeAudio from './components/ThemeAudio';
 
 function AppContent() {
   const { path, navigate } = useRouter();
@@ -64,6 +65,7 @@ export default function App() {
   return (
     <RouterProvider>
       <AppContent />
+      <ThemeAudio />
     </RouterProvider>
   );
 }

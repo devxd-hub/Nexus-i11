@@ -52,8 +52,7 @@ export const Footer: React.FC = () => {
         statusLabels={["Live", "Standby"]}
         statusCaption="Hackathon Status"
         defaultActive={true}
-        count={24890}
-        countLabel="Builders Registered"
+        showCount={false}
         rate={1.4}
         blurb="Hack for Good is a student-led hackathon hosted by Nexus, created to bring together the brightest ideas and emerging talent from our college community. It is a space to collaborate, experiment, and build solutions that turn bold thinking into real-world impact."
         legal={[
